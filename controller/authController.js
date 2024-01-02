@@ -35,7 +35,7 @@ exports.login = async (req, res, next) => {
       const error = new Error("Erreur! Quelque chose s'est mal passée.");
       return next(error);
     }
-   
+   console.log(existingUser);
     res
       .status(200)
       .json({
@@ -45,7 +45,7 @@ exports.login = async (req, res, next) => {
           email: existingUser.email,
           firstname: existingUser.firstname,
           lastname: existingUser.lastname,
-          token: existingUser.token
+          token: token
         },
       });
 }
