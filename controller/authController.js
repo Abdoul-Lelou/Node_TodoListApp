@@ -43,13 +43,8 @@ exports.login = async (req, res, next) => {
         data: {
           userId: existingUser.id,
           email: existingUser.email,
-          nom: existingUser.nom,
-          prenom: existingUser.prenom,
-          date_inscri: existingUser.date_inscri,
-          roles: existingUser.roles,
-          matricule: existingUser.matricule,
-          img: existingUser.img,
-          token: token,
+          firstname: existingUser.firstname,
+          lastname: existingUser.lastname
         },
       });
 }
