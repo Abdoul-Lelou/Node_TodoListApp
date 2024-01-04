@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser');
 require('dotenv').config();
 
 var cors = require('cors')
@@ -9,9 +8,8 @@ const routes = require('./routes/routes');
 
 const databaseLink = process.env.DATABASE_URL
 
-mongoose.connect(databaseLink,
-    { useNewUrlParser: true, useUnifiedTopology: true }, err => {
-    });
+mongoose.connect(databaseLink,{ useNewUrlParser: true, useUnifiedTopology: true }, () => {});
+
 const database = mongoose.connection
 
 const app = express();
@@ -34,10 +32,6 @@ database.on('error', (error) => {
    console.log(error)
 })
 
-database.once('connected', () => {
-   console.log('Database Connected');
-})
+database.once('connected', () => {})
 
-app.listen(3001, () => {
-   // console.log(`Server Started at ${3000}`)
-})
+app.listen(3001, () => {})
